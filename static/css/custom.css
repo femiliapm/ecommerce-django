@@ -1,0 +1,15 @@
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.carousel-item > img {
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card > img {
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}

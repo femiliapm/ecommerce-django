@@ -1,0 +1,70 @@
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent1"
+      aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-sm-0" href="/">
+        <strong class="text-primary">DJANGO</strong>
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link " href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/checkout">Checkout</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Contact</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+
+      {% if user.is_authenticated %}
+
+      {% comment %}
+      <a href="#" class="nav-link me-3">
+        {% endcomment %}
+
+        <a href="{% url 'core:checkout' %}" class="nav-link me-3">
+
+          {% if request.user or cart_item_count != 0 %}
+          <span class="badge red z-depth-1 me-1">
+            {{ request.user }} | {{ cart_item_count }}
+          </span>
+          {% endif %}
+          <i class="fas fa-shopping-cart"></i>
+          <span class="clearfix d-none d-sm-inline-block">Cart</span>
+        </a>
+        <a href="#" class="nav-link me-3">
+          Hi, {{ user.username }}!
+        </a>
+
+        {% comment %}
+        <a href="{% url 'logout' %}" class="nav-link me-3">Logout</a>
+        {% endcomment %}
+
+        <a href="#" class="nav-link me-3">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}" class="nav-link me-3">Login</a>
+        {% endif %}
+    </div>
+    <!-- Right elements -->
+
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
